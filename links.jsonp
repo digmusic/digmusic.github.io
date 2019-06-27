@@ -9,6 +9,11 @@ callback([
   {
     "text": "Leitmotif Workshop",
     "href": "http://digmusic.github.io/workshop/leitmotif-workshop"
+  } ,
+
+  {
+    "text": "St Michael's June 28th Workshop",
+    "href": "http://digmusic.github.io/workshop/st-michaels"
   } 
 
 ])

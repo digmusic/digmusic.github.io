@@ -7,13 +7,38 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://digmusic.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://digmusic.github.io/" />
-<updated>2019-06-27T21:00:36+01:00</updated>
+<updated>2019-06-27T21:28:57+01:00</updated>
 <id>http://digmusic.github.io/</id>
 <author>
   <name>Music Tech Team</name>
   <uri>http://digmusic.github.io/</uri>
   <email>music.tech.team@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[St Michael's June 28th Workshop]]></title>
+  <link rel="alternate" type="text/html" href="http://digmusic.github.io/workshop/st-michaels"/>
+  <id>http://digmusic.github.io/workshop/st-michaels</id>
+  <published>2019-06-28T00:00:00+01:00</published>
+  <updated>2019-06-28T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Music Tech Team</name>
+    <uri>http://digmusic.github.io</uri>
+    <email>music.tech.team@gmail.com</email>
+  </author>
+  <category scheme="http://digmusic.github.io/tags/#Recording" term="Recording" /><category scheme="http://digmusic.github.io/tags/#Leitmotif" term="Leitmotif" />
+  <content type="html">
+  
+    &lt;p&gt;The &lt;strong&gt;St Michael’s Workshop&lt;/strong&gt; covers recording and the use of leitmotif.
+Start by following the instructions in this &lt;a href=&quot;http://digmusic.github.io/workshops/st-michaels/St_Michaels_mus_tech_June2019.pdf&quot; title=&quot;Link to St Michael's workshop PDF file&quot;&gt;PDF file&lt;/a&gt;.
+Instructions on working with leitmotif can be found in the Leitmotif Workshop
+blog entry elsewhere on this site.&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://digmusic.github.io/workshop/st-michaels&quot;&gt;St Michael's June 28th Workshop&lt;/a&gt; was originally published by Music Tech Team at &lt;a href=&quot;http://digmusic.github.io&quot;&gt;DigMusic&lt;/a&gt; on June 28, 2019.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -33,7 +58,9 @@
   
     &lt;p&gt;The &lt;strong&gt;Composing Workshop&lt;/strong&gt; experiments with GarageBand’s software instruments,
 the use of layering techniques and mixing in order to create a
-composition. Download the following files by right clicking on them and saving to the Desktop:&lt;/p&gt;
+composition.&lt;/p&gt;
+
+&lt;p&gt;Download the following files by right clicking on them and saving to the Desktop:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Instructions on what to do as a &lt;a href=&quot;http://digmusic.github.io/workshops/composing/composing.pdf&quot; title=&quot;Link to PDF file&quot;&gt;PDF&lt;/a&gt; &lt;strong&gt;or&lt;/strong&gt; &lt;a href=&quot;http://digmusic.github.io/workshops/composing/composing.pptx&quot; title=&quot;Link to composing workshop PowerPoint slides file&quot;&gt;PowerPoint&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;The &lt;a href=&quot;http://digmusic.github.io/workshops/composing/Garageband-How_to_Make_a_Basic_Track.mp4&quot; title=&quot;Link to composing workshop video file&quot;&gt;video&lt;/a&gt; showing how to compose using GarageBand.&lt;/li&gt;
