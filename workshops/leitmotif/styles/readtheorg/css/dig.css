@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/*
+--------------------------------------------------
+DigMusic SCSS styles
+(c) I. Wood 2019
+--------------------------------------------------
+*/
+h2 {
+  background-color: #942192;
+  color: #fff;
+  font-family: "Raleway", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+  margin-top: 2em; }
+
+h5 {
+  color: #942192;
+  font-weight: 700;
+  margin-bottom: 0.5rem; }
+
+h5:before {
+    content: "➤"; }
+
+#content div.figure {
+  margin-bottom: 1em;
+  padding: 0; }
+
+#content .admonition-title {
+    margin-bottom: 0; }
+
+#copyright .rst-current-version {
+  color: #942192; }
+
+#postamble .date {
+  color: #942192; }
+
+#table-of-contents h2 {
+  background-color: #942192; }
+
+code {
+  background: #fff;
+  color: #2D983D; }
+
+h1 {
+  font-family: "Oleo Script", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+  font-size: 400%; }
+
+
+.digaudio {
+  font-size: 80%;
+  font-family: "Ubuntu", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  margin-left: 2em; }
+
+.digblue {
+  color: #4398F9; }
+
+.digbtn {
+  background-color: #2D983D;
+  padding: 0px 4px;
+  color: #fff; }
+
+.diggreen {
+  color: #2D983D; }
+
+.digpurple {
+  color: #942192; }
+
+.digred {
+  color: #DB2D27; }
+
+.digrhs {
+  float: right; }
+
+.digterm {
+  text-decoration-line: underline;
+  text-decoration-style: dashed; }
+
+.digyt {
+  font-size: 80%;
+  font-family: "Ubuntu", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  margin-left: 2em; }
+
+.figure p {
+  margin-top: 4px;
+  padding: 0; }
+
+.guibtn {
+  background-color: #4398F9;
+  padding: 0px 4px;
+  color: #fff; }
+
+.half {
+    width: 50%; }
+
+.org-ul {
+  margin-top: 0;
+  margin-bottom: 1em; }
+
+.sidebar .org-ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+.sidebar .sidebar-title p {
+  margin-bottom: 0;
+  padding-bottom: 0; }
+
+.whole {
+    width: 100%; }
+
+@media screen and (max-width: 768px) {
+  #toggle-sidebar {
+    background-color: #942192; }
+    #toggle-sidebar h2 {
+      background-color: #942192; } }
+
+/*# sourceMappingURL=dig.css.map */

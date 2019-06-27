@@ -1,0 +1,1763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-06-26 Wed 21:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leitmotif Workshop</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="The Music Tech team" />
+<meta name="description" content="A Music Tech workshop for leitmotif in Crystal and Reason"
+ />
+<meta name="keywords" content="ambient, crystal, leitmotif, synthesis, workshop" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/dig.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css"href="styles/readtheorg/css/dig.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Leitmotif Workshop</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org24d8a65">Overview</a>
+<ul>
+<li><a href="#orgb1151d1">Aim</a></li>
+<li><a href="#orgc5c6338">Objectives</a></li>
+<li><a href="#org64fdc6f">Summary of tasks</a></li>
+<li><a href="#org2a0017b">What is a Leitmotif?</a></li>
+<li><a href="#org1d8caad">Leitmotifs in film music</a></li>
+<li><a href="#orga9ede84">Leitmotif in Games</a></li>
+</ul>
+</li>
+<li><a href="#orgb345de7">Crystal  and GarageBand setup</a>
+<ul>
+<li><a href="#org00a29e7">Running GarageBand</a></li>
+<li><a href="#org414ac90">Setting up  audio and MIDI</a></li>
+<li><a href="#orgb9a2502">Setting up the volume</a></li>
+<li><a href="#org630dcb2">Plugging in headphones/earbuds</a></li>
+<li><a href="#orgb19c122">Setting up the MIDI keyboard</a></li>
+<li><a href="#org774c09c">Setting up Crystal</a></li>
+</ul>
+</li>
+<li><a href="#orga84e499">Using Crystal</a>
+<ul>
+<li><a href="#orga8a5e70">Diving straight in</a></li>
+<li><a href="#org99fdbb5">Terminology</a></li>
+<li><a href="#orgf390649">YouTube Synthesizer video</a></li>
+<li><a href="#org583ece0">Key features</a></li>
+</ul>
+</li>
+<li><a href="#org2dd1362">Experimenting with Crystal</a>
+<ul>
+<li><a href="#orgdb461c7">Breeding new sounds</a></li>
+<li><a href="#org392b4e8">Saving a patch</a></li>
+<li><a href="#org038470b">Recording a Crystal track</a></li>
+<li><a href="#orgaf760ac">Playing a Crystal track</a></li>
+<li><a href="#org929d68b">Editing a Crystal track</a></li>
+<li><a href="#org0915f46">Changing the pitch/start point of a note</a></li>
+<li><a href="#org92f3524">Adding another Crystal track</a></li>
+</ul>
+</li>
+<li><a href="#org9dc5cd2">Experimenting with effects</a>
+<ul>
+<li><a href="#orgcfb2eae">Adding an effect</a></li>
+<li><a href="#orgdf4a93d">Changing an effect's settings</a></li>
+<li><a href="#org7455ac3">Constructing the effects chain</a></li>
+<li><a href="#orgaac4e8f">Getting the software</a></li>
+<li><a href="#org5fc2066">Some additional reading on effects</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org24d8a65" class="outline-2">
+<h2 id="org24d8a65">Overview</h2>
+<div class="outline-text-2" id="text-org24d8a65">
+</div>
+<div id="outline-container-orgb1151d1" class="outline-3">
+<h3 id="orgb1151d1">Aim</h3>
+<div class="outline-text-3" id="text-orgb1151d1">
+<p>
+To explore the creative use of music technology to create <b>leitmotifs</b> in sound
+and music.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc5c6338" class="outline-3">
+<h3 id="orgc5c6338">Objectives</h3>
+<div class="outline-text-3" id="text-orgc5c6338">
+<div class="sidebar">
+<div class="sidebar-title">
+<p>
+Workshop conventions
+</p>
+
+</div>
+<ul class="org-ul">
+<li><a href="http://synthtopia.com/">Link</a>: clicking on this goes to a site
+(e.g. <i>synthtopia.com</i>).</li>
+<li><span class="digpurple">➤Task</span>: something to try.</li>
+<li><span class="digterm" title="This is some text that describes the underlined word">Term</span>: move the
+cursor over the word to see a definition of it.</li>
+</ul>
+
+</div>
+<ol class="org-ol">
+<li>Explore software for processing sound.</li>
+<li>Explore a <span class="digterm" title="Software used to edit audio and MIDI data. Examples include Cubase, Logic Pro, Pro Tools, Reaper, and Sonar">Digital Audio Workstation</span> (DAW) for creating music.</li>
+<li>Use MIDI keyboard controllers for controlling sound processors and DAWs.</li>
+<li>Play with sound and music to create leitmotifs.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org64fdc6f" class="outline-3">
+<h3 id="org64fdc6f">Summary of tasks</h3>
+<div class="outline-text-3" id="text-org64fdc6f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-center"><b>Task</b></th>
+<th scope="col" class="org-left"><b>Objective</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-center">1</td>
+<td class="org-left">Listening to leitmotif</td>
+</tr>
+
+<tr>
+<td class="org-center">2</td>
+<td class="org-left">Create an example of leitmotif</td>
+</tr>
+
+<tr>
+<td class="org-center">3</td>
+<td class="org-left">Create a new sound using two existing sounds</td>
+</tr>
+
+<tr>
+<td class="org-center">4</td>
+<td class="org-left">Edit the recorded MIDI</td>
+</tr>
+
+<tr>
+<td class="org-center">5</td>
+<td class="org-left">Add another Crystal track</td>
+</tr>
+
+<tr>
+<td class="org-center">6</td>
+<td class="org-left">Add an effect</td>
+</tr>
+
+<tr>
+<td class="org-center">7</td>
+<td class="org-left">Change the effect's settings</td>
+</tr>
+
+<tr>
+<td class="org-center">8</td>
+<td class="org-left">Create an effects chain</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2a0017b" class="outline-3">
+<h3 id="org2a0017b">What is a Leitmotif?</h3>
+<div class="outline-text-3" id="text-org2a0017b">
+<p>
+A leitmotif in music is a short, recurrent theme throughout a piece of music. It
+can be a melody or phrase, a chord sequence, a rythmn, or a combination of
+these. It is used to associate with, or to refer to, a particular character,
+idea, place or situation (we will call these ‘the thing’).
+</p>
+</div>
+<div id="outline-container-orgf84cc48" class="outline-5">
+<h5 id="orgf84cc48">Task 1: Listening to leitmotif</h5>
+<div class="outline-text-5" id="text-orgf84cc48">
+<div class="sidebar">
+<div class="sidebar-title">
+<p>
+Tips
+</p>
+
+</div>
+<p>
+Navigate around the workshop using the <i>Table of Contents</i> area.
+The contents display changes as you scroll down through the workshop.
+</p>
+
+</div>
+<p>
+Listen to <i>The Imperial War March</i> from <i>Star Wars</i> and ask yourself a few
+questions about it:
+</p>
+<ul class="org-ul">
+<li>What is ‘the thing’ it is associated with?</li>
+<li>What does it make you think of?</li>
+</ul>
+
+<p>
+<audio controls>
+<source src="./assets/imperial.mp3" type="audio/mp3">Audio not supported</audio><br /><span class="digaudio">Star Wars Imperial War March</span>
+</p>
+
+<p>
+So to summarise, the leitmotif is the dominant theme that occurs when the
+‘thing’ appears and provides continuity in the music and consequently, the film.
+</p>
+
+<p>
+The word is from the German language. The words <i>leit</i> and <i>motif</i>, which
+translate respectively as "leading" and "motive."
+</p>
+
+<p>
+It is an arrow trained on a bull’s eye in music and sound it points towards a
+component of the overall soundtrack, drawing the listener’s attention to it.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d8caad" class="outline-3">
+<h3 id="org1d8caad">Leitmotifs in film music</h3>
+<div class="outline-text-3" id="text-org1d8caad">
+<p>
+The term is also applied in other kinds of music. It appears a lot in <b>Film
+Music</b> and <b>Games Soundtracks</b>. Maybe you have not really thought about
+leitmotifs and ‘why’ they are used and what role they have.
+</p>
+
+<p>
+Have a listen to some audio examples whilst considering the following:
+</p>
+<ul class="org-ul">
+<li>The instrumentation that is used.</li>
+<li>The range of notes that are used in regards to pitch and voicing.</li>
+<li>Pace: how fast or slow do events happen in the music? Does this change over
+time?</li>
+<li>Rhythm: are there any rhythmic patterns that signify anything?</li>
+</ul>
+<p>
+Here some examples of character leitmotifs in films:
+</p>
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/52Pfq19L5JU" frameborder="0" allowfullscreen></iframe><br /><span class="digyt">Star Wars AGAIN (1977)</span>
+</p>
+
+<p>
+Have a listen to the <b>Joker Theme</b> created from two tones initially on violins
+using razor blades and then a a variety of instruments.
+</p>
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/1zyhQjJ5UgY" frameborder="0" allowfullscreen></iframe><br /><span class="digyt">Joker theme</span>
+</p>
+
+<dl class="org-dl">
+<dt>The Dark Knight (2008)</dt><dd>Hans Zimmer uses sounds or tones he has created,
+rather than recognizable musical instruments.</dd>
+<dt>2001: A Space Odessey (1968)</dt><dd>Stanley Krubrick. It appears with every
+appearance of The monolith from Kyrie Gyorgy Legeti’s Requiem. If you want
+to listen to some more examples <a href="https://www.youtube.com/watch?v=-bzWSJG93P8&amp;list=PLIoDO5zqEKfBs1NGIF8Y_zAT6ObFW8sM0">click here</a> for an area on YouTube.</dd>
+</dl>
+
+<blockquote>
+<p>
+Unsettling, unable to fully understand it, this is unsettling to the listener,
+this then strikes fear into you when you hear it, whether it, the monolith, is
+in frame or not. It influences your thinking.
+</p>
+</blockquote>
+
+<dl class="org-dl">
+<dt>Lord of the Rings (2001+)</dt><dd>An area of LOTR leitmotifs can be found
+<a href="https://www.youtube.com/watch?v=Xz30h0gU5nE&amp;list=PLrnIK2MhPm89ybRftihObSyFecg2yS1Il">here</a>. This is the magic of what music can do: it can convey emotion,
+feeling and meaning. It can shape or influence your thinking. Through
+connotation, denotation….signifies emotions. Now let’s move to Games
+character motifs.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orga9ede84" class="outline-3">
+<h3 id="orga9ede84">Leitmotif in Games</h3>
+<div class="outline-text-3" id="text-orga9ede84">
+<dl class="org-dl">
+<dt>Final Fantasy VII</dt><dd>A strong example of the use of leitmotifs in Games is to
+be found in Final Fantasy VII. Every major story element to the game
+receives a recoginzable theme. Listen to them <a href="https://www.youtube.com/watch?v=WPx3h5bwXVQ&amp;list=PL77D98F68F6DBB35D">here</a> on YouTube.</dd>
+<dt>Assassin's Creed II</dt><dd>Another example could be Assasins Creed II</dd>
+</dl>
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/B3EB63kn2AE" frameborder="0" allowfullscreen></iframe><br /><span class="digyt">Assassins Creed II</span>
+</p>
+</div>
+
+<div id="outline-container-org3da28ad" class="outline-5">
+<h5 id="org3da28ad">Task 2: Create an example of leitmotif</h5>
+<div class="outline-text-5" id="text-org3da28ad">
+<p>
+Try creating a leitmotif in sound for a <b>character</b> or <b>place</b> or
+<b>situation</b>. In order to do this you can make use of Crystal (discussed in the
+next section). Here are some animation characters that you can try creating a
+leitmotif for.
+</p>
+
+<p>
+<img src="./assets/figure1.png" alt="figure1.png" /><img src="./assets/figure2.png" alt="figure2.png" />
+<img src="./assets/figure3.png" alt="figure3.png" />
+<img src="./assets/figure4.png" alt="figure4.png" />
+<img src="./assets/figure5.png" alt="figure5.png" />
+<img src="./assets/figure6.png" alt="figure6.png" /><img src="./assets/figure7.png" alt="figure7.png" />
+<img src="./assets/figure8.png" alt="figure8.png" />
+</p>
+
+<p>
+Images: Tom Leitch | Josh Atkinson | Yuala Chen
+</p>
+
+<ul class="org-ul">
+<li>Consider the main theme of the character.</li>
+<li>What do you see the size of the character as? Metaphorically and physically
+large, small</li>
+<li>What is their message to the listener?</li>
+<li>What do you imagine their attributes as?
+<ul class="org-ul">
+<li>Evil, dangerous, good, truthful, courageous, timid, loving, endearing</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb345de7" class="outline-2">
+<h2 id="orgb345de7">Crystal  and GarageBand setup</h2>
+<div class="outline-text-2" id="text-orgb345de7">
+<p>
+<a id="orged09668"></a>
+The Crystal synthesiser runs as a plug-in inside GarageBand. Follow the
+instructions in this section to set up GarageBand and Crystal.
+</p>
+<div class="note">
+<p>
+Crystal is a <b>free</b> synthesiser that works with music applications in MacOS and Windows. See the section on <a href="#orgd47ca1f">Getting the software</a> for more information.
+</p>
+
+</div>
+</div>
+<div id="outline-container-org00a29e7" class="outline-3">
+<h3 id="org00a29e7">Running GarageBand</h3>
+<div class="outline-text-3" id="text-org00a29e7">
+<p>
+<a id="orga4d328a"></a>
+</p>
+<ol class="org-ol">
+<li>Run GarageBand by clicking on the GarageBand icon <img src="./assets/gb-32.png" alt="gb-32.png" /> in the
+<b>Dock Bar</b> at the bottom of the screen. If the icon is <b>not</b> there then do
+the following:
+<ul class="org-ul">
+<li>Click on an unoccupied area of the Desktop.</li>
+<li>Select <code>Go &gt; Applications</code> from the menu at the top of the screen.</li>
+<li>Scroll down to GarageBand in the list and <b>double click</b> on it.</li>
+</ul></li>
+<li>At the <b>Welcome to GarageBand</b> screen click <span class="guibtn">Continue</span></li>
+<li>At the <b>What's New in GarageBand</b> screen click <span class="guibtn">Get Started</span></li>
+<li><p>
+From the <b>Choose a Project</b> dialogue (Figure <a href="#org7a0419e">1</a>) select
+<span class="guibtn">Empty Project</span> and click <span class="guibtn">Choose</span>
+</p>
+
+<div id="org7a0419e" class="figure">
+<p><img src="./assets/gb3.png" alt="gb3.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>GarageBand 'Choose a Project' dialogue</p>
+</div></li>
+<li value="5"><p>
+From the <b>Choose a track type</b> dialogue (Figure <a href="#org591605f">2</a>)
+select <span class="digbtn">Software Instrument</span> and click <span class="guibtn">Create</span>
+</p>
+
+<div id="org591605f" class="figure">
+<p><img src="./assets/gb4.png" alt="gb4.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>GarageBand 'Choose a track type' dialogue</p>
+</div></li>
+<li value="6"><p>
+At this point the main GarageBand screen should appear, looking
+something like Figure <a href="#org035f96f">3</a>
+</p>
+
+<div id="org035f96f" class="figure">
+<p><img src="./assets/gb5.png" alt="GarageBand main screen image" title="GarageBand main screen" />
+</p>
+<p><span class="figure-number">Figure 3: </span>GarageBand main screen</p>
+</div></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org414ac90" class="outline-3">
+<h3 id="org414ac90">Setting up  audio and MIDI</h3>
+<div class="outline-text-3" id="text-org414ac90">
+<p>
+<a id="orgaed46cd"></a>
+</p>
+<ol class="org-ol">
+<li><p>
+From the menu at the top of the screen select <code>GarageBand &gt; Preferences…</code>
+(Figure <a href="#org910da8a">4</a>) then select <code>Audio/MIDI</code> (shown by <span class="digred">&#x2460;</span>)
+</p>
+
+<div id="org910da8a" class="figure">
+<p><img src="./assets/gb-prefs.png" alt="GarageBand preferences dialogue image" height="400px" title="GarageBand preferences" />
+</p>
+<p><span class="figure-number">Figure 4: </span>GarageBand preferences dialogue</p>
+</div></li>
+<li value="2">Set the Audio/MIDI dialogue so that it looks lke Figure
+<a href="#org667ca4c">5</a> by setting:
+<ul class="org-ul">
+<li>Output device to Built-in Output <span class="digred">&#x2460;</span></li>
+<li>Input device to Built-in Microphone <span class="digred">&#x2461;</span> (it does not matter whether it is
+allowed to access the microphone as we will not be using it)</li>
+</ul></li>
+</ol>
+<p>
+Note: The MIDI status information should show at least 1 MIDI inputs have been
+detected
+</p>
+
+<div id="org667ca4c" class="figure">
+<p><img src="./assets/gb-audio-midi.png" alt="GarageBand Audio/MIDI dialogue image" height="400px" title="GarageBand Audio/MIDI" />
+</p>
+<p><span class="figure-number">Figure 5: </span>GarageBand Audio/MIDI dialogue</p>
+</div>
+<ol class="org-ol">
+<li value="3">Close the Preferences dialogue box by clicking on the <span class="digred">red</span> traffic
+light button at the top-left of the window.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgb9a2502" class="outline-3">
+<h3 id="orgb9a2502">Setting up the volume</h3>
+<div class="outline-text-3" id="text-orgb9a2502">
+<p>
+<a id="org7674db9"></a>
+The volume controls on the iMac are accessed using function keys:
+</p>
+<table id="orgb891a67" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Volume function keys</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Fn key</b></th>
+<th scope="col" class="org-left"><b>Description</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">F10</td>
+<td class="org-left">Mute the sound. Press again to unmute</td>
+</tr>
+
+<tr>
+<td class="org-left">F11</td>
+<td class="org-left">Decrease the sound</td>
+</tr>
+
+<tr>
+<td class="org-left">F12</td>
+<td class="org-left">Increase the sound</td>
+</tr>
+</tbody>
+</table>
+<p>
+Set the volume level to around 1/4 as a starting point
+</p>
+</div>
+</div>
+<div id="outline-container-org630dcb2" class="outline-3">
+<h3 id="org630dcb2">Plugging in headphones/earbuds</h3>
+<div class="outline-text-3" id="text-org630dcb2">
+<p>
+<a id="org68765ad"></a>
+The iMac has a mini-jack sized headphone socket on the back of the screen at the
+bottom right (as you look at the screen from the front). The headphone plug
+should go in easily, but if there are problems, ask a tutor.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb19c122" class="outline-3">
+<h3 id="orgb19c122">Setting up the MIDI keyboard</h3>
+<div class="outline-text-3" id="text-orgb19c122">
+<p>
+<a id="orga4ed7bb"></a>
+There is an M-Audio music keyboard attached via USB cable to the iMac. It will
+either be a <b>Code 25</b> or <b>Axiom 25</b>.
+</p>
+<ol class="org-ol">
+<li>Check that the music keyboard is plugged in (power comes from the USB cable).</li>
+<li>If the keyboard is not switched on (it should be showing light from its
+display) then switch it on. Both types of keyboard have a switch at the back
+on the left.</li>
+<li>Check that the octave is not too high or low by pressing one of the octave
+keys (located on the left). It should read somewhere around 4 &#x2013; if it is too
+high then decrease it; if too low then increase it.</li>
+<li>See if it works: pressing a key on the music keyboard should produce a
+sound. If you do not have sound then ask a tutor.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org774c09c" class="outline-3">
+<h3 id="org774c09c">Setting up Crystal</h3>
+<div class="outline-text-3" id="text-org774c09c">
+<p>
+<a id="org1ba1d8d"></a>
+</p>
+<ol class="org-ol">
+<li><p>
+Set up GarageBand's <i>Smart Controls</i> (located at the top left of the
+GarageBand window) so that they are the same as Figure <a href="#org1c629e1">6</a>
+</p>
+
+<div id="org1c629e1" class="figure">
+<p><img src="./assets/gb-smart.png" alt="GarageBand Smart Controls image" title="GarageBand Smart Controls" />
+</p>
+<p><span class="figure-number">Figure 6: </span>GarageBand Smart Controls</p>
+</div>
+<ol class="org-ol">
+<li value="2">In the <i>Track/Master/Compare</i> area (Figure <a href="#orgb5d5400">7</a>) make
+sure that <span class="guibtn">Track</span> is selected and click on the <b>► Plug-ins</b> text to display
+its options, as shown in Figure <a href="#org1a76ce6">8</a></li>
+</ol>
+
+<div id="orgb5d5400" class="figure">
+<p><img src="./assets/gb-track-master.png" alt="GarageBand track/master/compare area image" height="300px" title="GarageBand track/master/compare area" />
+</p>
+<p><span class="figure-number">Figure 7: </span>GarageBand track/master/compare area</p>
+</div>
+
+<div id="org1a76ce6" class="figure">
+<p><img src="./assets/gb-plugins.png" alt="GarageBand plug-ins image" height="300px" title="GarageBand plug-ins" />
+</p>
+<p><span class="figure-number">Figure 8: </span>GarageBand plug-ins</p>
+</div>
+<ol class="org-ol">
+<li value="3">Move the cursor over the current plug-in (shown by
+<img src="./assets/gb-curr-plugin.png" alt="gb-curr-plugin.png" />) and click on the <img src="./assets/gb-arrows.png" alt="gb-arrows.png" /> to
+display a menu of possible plug-ins.</li>
+<li>From the list select <code>Crystal &gt; Stereo</code> (or if it is not visible then
+select <code>AU Instruments &gt; Green Oak Software &gt; Crystal &gt; Stereo</code> instead).</li>
+<li>The Crystal plug-in should now appear (Figure <a href="#orgc58c73b">9</a>)</li>
+</ol>
+
+<div id="orgc58c73b" class="figure">
+<p><img src="./assets/cry-main.png" alt="Crystal plug-in image" title="Crystal plug-in" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Crystal plug-in</p>
+</div></li>
+</ol>
+
+
+
+<div class="figure">
+<p><img src="./assets/and-breathe.jpg" alt="and-breathe.jpg" />
+</p>
+</div>
+
+<p>
+Congratulations &#x2013; you made it through the setup
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga84e499" class="outline-2">
+<h2 id="orga84e499">Using Crystal</h2>
+<div class="outline-text-2" id="text-orga84e499">
+</div>
+<div id="outline-container-orga8a5e70" class="outline-3">
+<h3 id="orga8a5e70">Diving straight in</h3>
+<div class="outline-text-3" id="text-orga8a5e70">
+<p>
+<a id="org5c4a078"></a>
+</p>
+<div class="sidebar">
+<p>
+<span class="sidebar-title">Be sure you have &#x2026;</span>
+</p>
+<ul class="org-ul">
+<li><a href="#orga4d328a">Run GarageBand</a></li>
+<li><a href="#orgaed46cd">Set up GarageBand's audio/MIDI</a></li>
+<li><a href="#org7674db9">Set up the volume</a></li>
+<li><a href="#org68765ad">Plugged in the headphones</a></li>
+<li><a href="#orga4ed7bb">Set up the MIDI keyboard</a></li>
+<li><a href="#org1ba1d8d">Set up Crystal</a></li>
+</ul>
+
+</div>
+<p>
+If you want to hear something after all that effort of setting up, then try the
+following steps:
+</p>
+<ol class="org-ol">
+<li>Press a key on the music keyboard and hold it down a <span class="digterm" title="Not sure how many o's n's and g's, but there are lots">loooooonnnnnnnnggggg</span>
+time to hear how the sound develops.</li>
+<li>Try a different note and do the same holding down. Other than a change in
+pitch (which you would expect as it is a different note) does it sound
+different? If yes, why might that be do you think?</li>
+<li>On the music keyboard try changing the octave (the controls on the left) by
+one up or down and see how that changes the sounds produced.</li>
+<li>Click the ► in <img src="./assets/cry-preset-control.png" alt="cry-preset-control.png" /> to try the next preset, or
+click ▼ to open the full list of presets to select from &#x2013; pick something
+that takes your interest. How does it sound?</li>
+<li>Think back to the sections on <i>leitmotif</i>. Does anything you have heard give
+you any inspiration for the character you want to put a sound to?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org99fdbb5" class="outline-3">
+<h3 id="org99fdbb5">Terminology</h3>
+<div class="outline-text-3" id="text-org99fdbb5">
+<p>
+<a id="org01b9e81"></a>
+Some terminology used when describing the features of Crystal. Feel free to skip
+this section and refer back to it later as necessary.
+</p>
+<table id="org6bef294" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Terminology</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Term</b></th>
+<th scope="col" class="org-left"><b>Meaning</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bank</td>
+<td class="org-left">A collection of patches organised in groups</td>
+</tr>
+
+<tr>
+<td class="org-left">Breed</td>
+<td class="org-left">To combine two sounds to produce a third</td>
+</tr>
+
+<tr>
+<td class="org-left">Frequency</td>
+<td class="org-left">The rate per second of a vibration constituting a wave</td>
+</tr>
+
+<tr>
+<td class="org-left">Group</td>
+<td class="org-left">A collection of patches that forms part of a bank</td>
+</tr>
+
+<tr>
+<td class="org-left">Mutation</td>
+<td class="org-left">The amount (degree) of change applied to a sound</td>
+</tr>
+
+<tr>
+<td class="org-left">Oscillator</td>
+<td class="org-left">A device to generate a vibrating signal e.g. a sine wave</td>
+</tr>
+
+<tr>
+<td class="org-left">Patch</td>
+<td class="org-left">The settings to create a particular sound or the sound itself</td>
+</tr>
+
+<tr>
+<td class="org-left">Pitch</td>
+<td class="org-left">The degree of highness or lowness of a tone</td>
+</tr>
+
+<tr>
+<td class="org-left">Voice</td>
+<td class="org-left">A sound generator (Crystal has 3 of these)</td>
+</tr>
+</tbody>
+</table>
+<div class="tip">
+<p>
+A number of terms used in the workshop have a definition associated with them &#x2013;
+just move the cursor over an underlined word and it will show its definition
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgf390649" class="outline-3">
+<h3 id="orgf390649">YouTube Synthesizer video</h3>
+<div class="outline-text-3" id="text-orgf390649">
+<p>
+<a id="orgfd020a2"></a>
+A YouTube video covering envelopes, LFOs, and modulation may help with
+understanding some of the concepts covered in the next section.
+</p>
+
+<p>
+<iframe width="440" height="335" src="https://www.youtube.com/embed/CS_MFw2Y9kU" frameborder="0" allowfullscreen></iframe><br /><span class="digyt">Synthesizer Boot Camp #4</span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org583ece0" class="outline-3">
+<h3 id="org583ece0">Key features</h3>
+<div class="outline-text-3" id="text-org583ece0">
+<p>
+<a id="org9c6a0c8"></a>
+The Crystal synthesiser plug-in looks complex but can be viewed as a collection
+of different areas, each area contributing something different to the sound
+produced. The areas are described in the sections below (numbers correspond to
+those in Figure <a href="#orgc58c73b">9</a>).
+</p>
+</div>
+<div id="outline-container-orgfb82e88" class="outline-4">
+<h4 id="orgfb82e88">1. Main controls</h4>
+<div class="outline-text-4" id="text-orgfb82e88">
+<p>
+<a id="org2ba9a05"></a>
+</p>
+<dl class="org-dl">
+<dt>Voices</dt><dd>Crystal produces sound using three sound generators and the
+controls for how much each contributes to the overall sound are
+here. Think of them as three singers, each producing a different
+sound, that when mixed together in different proportions
+produces something interesting.</dd>
+<dt>Patch/group</dt><dd>Indicates the most recently loaded sound patch or patch
+group.  Figure <a href="#orgc58c73b">9</a> has the group <i>Atmosphere</i>
+selected. Use ◀ and ► to move to previous/next patch; use ▼
+to list all patches in the current bank.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orge0924ac" class="outline-4">
+<h4 id="orge0924ac">2. Patches</h4>
+<div class="outline-text-4" id="text-orge0924ac">
+<p>
+<a id="orgcd91fdd"></a>
+</p>
+<dl class="org-dl">
+<dt>Browse</dt><dd>Choose a bank of sounds &#x2013; currently there is only one bank of
+sounds installed so this function is of little use.</dd>
+<dt>Breed</dt><dd>Set the <i>father</i> and <i>mother</i> patches, together with an amount of
+<i>mutation</i> then click <span class="guibtn">Breed</span> to produce a new sound that is a
+combination of the two original sounds and a degree of mutation.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgc619ef5" class="outline-4">
+<h4 id="orgc619ef5">3. Modulation envelopes</h4>
+<div class="outline-text-4" id="text-orgc619ef5">
+<p>
+<a id="org4185339"></a>
+An <i>envelope</i> is a series of points that determine the amount by which the
+feature it is modulating changes. Given the modulation envelope in Figure
+<a href="#org4e296fc">11</a> the quantity of modulation starts at nothing (blue dor)
+increases to near maximum (yellow dot), falls to around 1/3 (green dot) and
+so on. What the envelope controls is deermined by the <a href="#org4cd0c38">modulation matrix</a>.
+</p>
+
+<p>
+(See: <a href="#orgfd020a2">YouTube video</a>)
+</p>
+
+
+<div id="org4e296fc" class="figure">
+<p><img src="./assets/cry-mod-env.png" alt="Crystal modulation envelope example image" title="Crystal modulation envelope example" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Crystal modulation envelope example</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1c3a02" class="outline-4">
+<h4 id="orgd1c3a02">4. LFOs</h4>
+<div class="outline-text-4" id="text-orgd1c3a02">
+<p>
+<a id="org1a266ec"></a>
+Low frequency oscillators (LFOs) are used to impart a sense of movement to the
+sound. The most common is a sine wave that rises and falls in a smooth
+fashion. This regular motion can be used to modulate the pitch or volume level
+of a sound, making it wobble with a tremolo or vibrato effect (for pitch) or
+pulse louder and quieter (for volume). The faster the LFO runs at (the greater
+its frequency) the quicker the pitch wobble or volume pulsing.
+</p>
+
+<p>
+(See: <a href="#orgfd020a2">YouTube video</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org7bfa44b" class="outline-4">
+<h4 id="org7bfa44b">5. Modulation matrix</h4>
+<div class="outline-text-4" id="text-org7bfa44b">
+<p>
+<a id="org4cd0c38"></a>
+The <i>modulation matrix</i> determines which control (source) modulates which
+synthesizer feature (target). In the default setup (Figure <a href="#org50ba7d4">12</a>)
+ModEnvelope1 is shown to affect <b>Voice 1 Filt Res</b> i.e. the resonance property of
+Voice 1's filter.
+</p>
+
+<div id="org50ba7d4" class="figure">
+<p><img src="./assets/cry-src-targ.png" alt="Crystal modulation matrix first item image" title="Crystal modulation matrix first item" />
+</p>
+<p><span class="figure-number">Figure 12: </span>Crystal modulation matrix first item</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2dd1362" class="outline-2">
+<h2 id="org2dd1362">Experimenting with Crystal</h2>
+<div class="outline-text-2" id="text-org2dd1362">
+<p>
+<a id="orge59ce6b"></a>
+</p>
+</div>
+<div id="outline-container-orgd112408" class="outline-5">
+<h5 id="orgd112408">Task 3: Create a new sound using two existing sounds</h5>
+<div class="outline-text-5" id="text-orgd112408">
+<p>
+Use the <i>breed</i> facility to create a new sound from two other sounds.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb461c7" class="outline-3">
+<h3 id="orgdb461c7">Breeding new sounds</h3>
+<div class="outline-text-3" id="text-orgdb461c7">
+<div class="sidebar">
+
+<div id="org18fea22" class="figure">
+<p><img src="./assets/cry-patches.png" alt="Crystal patches image" width="140px" title="Crystal patches" />
+</p>
+<p><span class="figure-number">Figure 13: </span>Crystal patches</p>
+</div>
+
+</div>
+<p>
+For the following steps be sure to keep a note of <i>Father</i>, <i>Mother</i> and
+<i>Mutation</i> settings that produce something interesting as these can be used in
+future.
+</p>
+<ol class="org-ol">
+<li>In Crystal's <i>Patches</i> section (see Figure <a href="#org18fea22">13</a>) pick two
+different patches from the patches list: one each for <i>Father</i> and
+<i>Mother</i>. Leave the <i>Mutation</i> setting as it is. Click <span class="guibtn">Breed</span> and listen to
+the results.</li>
+<li>Adjust the <i>Mutation</i> setting, click <span class="guibtn">Breed</span>, and listen to the results. What
+is the difference? What about other <i>Mutation</i> settings?</li>
+<li>Reset the <i>Mutation</i> to <i>no mutation</i> and try different <i>Father</i> and <i>Mother</i>
+combinations.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org392b4e8" class="outline-3">
+<h3 id="org392b4e8">Saving a patch</h3>
+<div class="outline-text-3" id="text-org392b4e8">
+<p>
+Having worked to create a new sound it is useful to be able to save the
+results. This can then be used in anyone else's copy of Crystal to recreate
+the same sound.
+</p>
+<ol class="org-ol">
+<li>Click the pull-down <span class="digred">&#x2460;</span> (Figure <a href="#orgf641d18">14</a>). It normally shows <i>Manual</i>.</li>
+<li>Select <code>Save As...</code> <span class="digred">&#x2461;</span> from the menu</li>
+<li>Supply a name for the patch (setting) in the <code>Save As:</code> textbox.</li>
+<li>Click the <code>Crystal</code> pulldown for <code>Where:</code> (Figure <a href="#org6e165b7">15</a>)</li>
+<li>Click <code>Desktop</code> in the <code>Favorites</code> area.</li>
+<li>Click <span class="guibtn">Save</span> to save the patch to the Desktop.</li>
+<li>Check that it has saved there by looking at the right of the desktop.</li>
+</ol>
+
+
+<div id="orgf641d18" class="figure">
+<p><img src="./assets/cry-save.png" alt="Crystal save pulldown image" width="400px" title="Crystal save pulldown" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Crystal save pulldown</p>
+</div>
+
+
+<div id="org6e165b7" class="figure">
+<p><img src="./assets/cry-save-as.png" alt="Crystal save-as pulldown image" width="400px" title="Crystal save as pulldown" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Crystal save-as pulldown</p>
+</div>
+
+<div class="tip">
+<p>
+Email the setting to yourself so that you can use it at home/college.<br />
+Open a browser (Safari and Chrome are available on the dock bar) then navigate
+to your webmail account e.g. <b>gmail.com</b> and send the setting file as an
+attachment.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org038470b" class="outline-3">
+<h3 id="org038470b">Recording a Crystal track</h3>
+<div class="outline-text-3" id="text-org038470b">
+<p>
+Having created an interesting patch it would be useful to record the results
+of playing something with it. GarageBand can record the audio resulting from
+playing notes using Crystal.
+</p>
+</div>
+<div id="outline-container-org3e8601e" class="outline-4">
+<h4 id="org3e8601e">Keyboard shortcuts</h4>
+<div class="outline-text-4" id="text-org3e8601e">
+<div class="sidebar">
+<div class="sidebar-title">
+<p>
+Transport bars
+</p>
+
+</div>
+
+<div id="org169e836" class="figure">
+<p><img src="./assets/gb-trans1.png" alt="GarageBand transport image 1" width="200px" title="GarageBand transport 1" />
+</p>
+<p><span class="figure-number">Figure 16: </span>GarageBand transport</p>
+</div>
+
+<div id="org6b6229b" class="figure">
+<p><img src="./assets/gb-trans2.png" alt="GarageBand transport image 2" width="200px" title="GarageBand transport 2" />
+</p>
+<p><span class="figure-number">Figure 17: </span>GarageBand transport 2</p>
+</div>
+
+</div>
+
+<table id="org91e84ef" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Recording shortcuts</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Shortcut</b></th>
+<th scope="col" class="org-left"><b>Description</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>K</code></td>
+<td class="org-left">Toggle <span class="digterm" title="Provides a rhythimc tick to play sounds to">metronome</span> on/off</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>⇧+K</code></td>
+<td class="org-left">Toggle <span class="digterm" title="Count in before recording starts">count in</span> on/off</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>R</code></td>
+<td class="org-left">Toggle record start/stop</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPACE</code></td>
+<td class="org-left">Toggle play/pause (►)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ENTER</code></td>
+<td class="org-left">Rewind to the start of the track</td>
+</tr>
+</tbody>
+</table>
+<p>
+To do this, follow these steps:
+</p>
+<ol class="org-ol">
+<li>Practice what you want to play before you do any recording.</li>
+<li>Turn the metronome and count-in features off <img src="./assets/gb-metro-count.png" alt="gb-metro-count.png" />,
+unless you want GarageBand to make a ticking sound evey beat.</li>
+<li>Click the <span class="digred">red</span> record button shown in Figure <a href="#org169e836">16</a> (or press R) to
+start recording. The transport bar will then turn into that shown in Figure
+<a href="#org6b6229b">17</a>.</li>
+<li>Hold down some keys on the M-Audio keyboard for the notes you want to record.</li>
+<li>Click the <span class="digred">red</span> record button (or press R) to stop the recording (Figure
+<a href="#org6b6229b">17</a>).</li>
+<li>Click the <span class="diggreen">green</span> play button (or press SPACE) to stop the play bar.</li>
+</ol>
+<p>
+The result should look something like Figure <a href="#org209f716">18</a>.
+</p>
+
+<div id="org209f716" class="figure">
+<p><img src="./assets/cry-track.png" alt="Crystal recorded track image" width="600px" title="Crystal recorded track" />
+</p>
+<p><span class="figure-number">Figure 18: </span>Crystal recorded track</p>
+</div>
+<div class="tip">
+<p>
+To change the title of the track from <b>Inst1</b> to <b>Crystal track</b> (or anything
+else you want) double cick on the <b>Inst1</b> text in the grey half of the track and
+type in your own text.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf760ac" class="outline-3">
+<h3 id="orgaf760ac">Playing a Crystal track</h3>
+<div class="outline-text-3" id="text-orgaf760ac">
+<ol class="org-ol">
+<li>Click on the play bar and drag it to a position before the part of the track
+you want to play.</li>
+<li>Click on the play button (►) or press SPACE to start playing.</li>
+<li>Click on the play button (►) or press SPACE again to stop playing.</li>
+</ol>
+</div>
+<div id="outline-container-orgc0827cb" class="outline-5">
+<h5 id="orgc0827cb">Task 4: Edit the recorded MIDI</h5>
+<div class="outline-text-5" id="text-orgc0827cb">
+<p>
+Edit the recorded MIDI data so that it conforms better to what you require for
+your character's leitmotif.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org929d68b" class="outline-3">
+<h3 id="org929d68b">Editing a Crystal track</h3>
+<div class="outline-text-3" id="text-org929d68b">
+<ol class="org-ol">
+<li>Double click anywhere on the <span class="diggreen">green</span> area of the track shown in Figure
+<a href="#org209f716">18</a>. This will open the <span class="guibtn">Piano Roll</span> area (see Figure <a href="#org419d9ef">19</a>).</li>
+<li>Notes in the track area (upper half of Figure <a href="#org419d9ef">19</a>) can be edited in
+the piano roll area (lower hald of the Figure). <span class="digred">&#x2460;</span> and <span class="digred">&#x2461;</span> show two
+notes and their piano roll equivalents; <span class="digred">&#x2462;</span> shows the pitch of notes (C3
+is the third C note on the piano keyboard).</li>
+</ol>
+<div class="tip">
+<p>
+The piano keyboard shown with C3 in Figure <a href="#org419d9ef">19</a> can be used to play
+notes using Crystal by clicking on the appropriate note.<br />
+The Crystal track can be muted/unmuted using <span class="digred">&#x2463;</span>
+</p>
+
+</div>
+
+<div id="org419d9ef" class="figure">
+<p><img src="./assets/gb-roll.png" alt="GarageBand piano roll image" title="GarageBand piano roll" />
+</p>
+<p><span class="figure-number">Figure 19: </span>Piano roll area</p>
+</div>
+<table id="orgdc0a93b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 4:</span> Editing shortcuts</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Shortcut</b></th>
+<th scope="col" class="org-left"><b>Description</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>⌘+C</code></td>
+<td class="org-left">Copy the selected note to the clipboard</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>⌘+V</code></td>
+<td class="org-left">Paste the note from the clipboard into the piano roll</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>⌘+X</code></td>
+<td class="org-left">Cut the selected note to the clipboard</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>⌘+Z</code></td>
+<td class="org-left">Undo the last action</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org0915f46" class="outline-3">
+<h3 id="org0915f46">Changing the pitch/start point of a note</h3>
+<div class="outline-text-3" id="text-org0915f46">
+<p>
+Click on the note's <span class="diggreen">green</span> bar in the piano roll area and drag it up/down to
+change the pitch or left/right to change the start point of the note.
+</p>
+</div>
+<div id="outline-container-org5bc50e0" class="outline-4">
+<h4 id="org5bc50e0">Changing the duration of a note</h4>
+<div class="outline-text-4" id="text-org5bc50e0">
+<ol class="org-ol">
+<li>Move the cursor over the right hand end of the note's <span class="diggreen">green</span> bar and the
+cursor will change to a ']'</li>
+<li>Click and drag the right hand end of the bar to left/right to
+shorten/lengthen the note.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga49d1b7" class="outline-4">
+<h4 id="orga49d1b7">Copying a note</h4>
+<div class="outline-text-4" id="text-orga49d1b7">
+<ol class="org-ol">
+<li>Click on the note's <span class="diggreen">green</span> bar in the piano roll area to select it.</li>
+<li>Select <code>Edit &gt; Copy</code> (or use the <code>⌘+C</code> shortcut).</li>
+<li>Select <code>Edit &gt; Paste</code> (or use the <code>⌘+V</code> shortcut). A copy of the note's <span class="diggreen">green</span>
+bar will be available in the piano roll to reposition at the desired
+position.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org3f1f1b6" class="outline-4">
+<h4 id="org3f1f1b6">Deleting a note</h4>
+<div class="outline-text-4" id="text-org3f1f1b6">
+<ol class="org-ol">
+<li>Click on the note's <span class="diggreen">green</span> bar in the piano roll area to select it.</li>
+<li>Press the backspace key <span class="guibtn">&larr;</span></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org5348f50" class="outline-4">
+<h4 id="org5348f50">Undoing an edit</h4>
+<div class="outline-text-4" id="text-org5348f50">
+<ol class="org-ol">
+<li>Select <code>Edit &gt; Undo</code> (or use the <code>⌘+Z</code> shortcut).</li>
+</ol>
+</div>
+<div id="outline-container-org4f0144b" class="outline-5">
+<h5 id="org4f0144b">Task 5: Add another Crystal track</h5>
+<div class="outline-text-5" id="text-org4f0144b">
+<p>
+Follow the instructions below to add another Crystal track
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org92f3524" class="outline-3">
+<h3 id="org92f3524">Adding another Crystal track</h3>
+<div class="outline-text-3" id="text-org92f3524">
+<p>
+When creating a soundtrack it is very unusual just to have a single track &#x2013;
+such projects often have tens of tracks, each contributing a <i>layer</i> of sound to
+the overall result. To add another track use the following steps:
+</p>
+<ol class="org-ol">
+<li>Select <code>Track &gt; New Track</code> (or use the shortcut <code>⌥⌘+N</code>)</li>
+<li>From the <b>Choose a track type</b> dialogue (shown much earlier in Figure
+<a href="#org591605f">2</a>) select <span class="digbtn">Software Instrument</span> and click <span class="guibtn">Create</span></li>
+<li>Follow the instructions for <a href="#org1ba1d8d">Setting up Crystal</a> described previously.</li>
+</ol>
+<div class="tip">
+<p>
+Remember from a previous tip that tracks can be muted so that they do not make a
+sound. Click the <i>mute</i> button located just below the track's name to
+mute/unmute the track
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9dc5cd2" class="outline-2">
+<h2 id="org9dc5cd2">Experimenting with effects</h2>
+<div class="outline-text-2" id="text-org9dc5cd2">
+<p>
+<a id="orgc400f20"></a> 
+An <b>effect</b> is a feature of GarageBand that can be applied to a track in order
+to affect its sound in some way. Different effects change the sound in different
+ways. Table <a href="#orgd8009e6">5</a> shows some of the available effects (there are lots more
+in GarageBand), how each affects the sound, the effect's location in
+GarageBand's menu (see <a href="#org611b81b">Adding effects</a> for more information), and some additional
+reading about the effect elsewhere on the internet.
+</p>
+
+<p>
+An <b>effects chain</b> is a series of effects where the <i>output</i> from one effect
+acts as the <i>input</i> to the next effect in the chain to see if they get you
+closer to the results you are looking for, or if they inspire you with
+unexpected results.
+</p>
+<table id="orgd8009e6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 5:</span> Effects and their results</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Effect</b></th>
+<th scope="col" class="org-left"><b>How it affects the sound</b></th>
+<th scope="col" class="org-left"><b>Menu</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bitcrusher</td>
+<td class="org-left">Sound like an early game soundtrack</td>
+<td class="org-left">Distortion</td>
+</tr>
+
+<tr>
+<td class="org-left">Channel EQ</td>
+<td class="org-left">Boost/reduce particular frequencies</td>
+<td class="org-left">EQ</td>
+</tr>
+
+<tr>
+<td class="org-left">Chorus</td>
+<td class="org-left">Thicken the sound with added harmonies</td>
+<td class="org-left">Modulation</td>
+</tr>
+
+<tr>
+<td class="org-left">Compressor</td>
+<td class="org-left">Quiet sounds louder, loud sounds quieter</td>
+<td class="org-left">Dynamics</td>
+</tr>
+
+<tr>
+<td class="org-left">Distortion</td>
+<td class="org-left">Gritty/fuzzy/grungy/&#x2026;</td>
+<td class="org-left">Distortion</td>
+</tr>
+
+<tr>
+<td class="org-left">Echo</td>
+<td class="org-left">Delayed distinct copies of the sound</td>
+<td class="org-left">Delay</td>
+</tr>
+
+<tr>
+<td class="org-left">Filterbank</td>
+<td class="org-left">Range of filters that remove frequencies</td>
+<td class="org-left">Filter</td>
+</tr>
+
+<tr>
+<td class="org-left">Flanger</td>
+<td class="org-left">A resonance effect (often a guitar pedal)</td>
+<td class="org-left">Modulation</td>
+</tr>
+
+<tr>
+<td class="org-left">Overdrive</td>
+<td class="org-left">Increase volume (often a guitar pedal)</td>
+<td class="org-left">Distortion</td>
+</tr>
+
+<tr>
+<td class="org-left">Ring shifer</td>
+<td class="org-left">Sounds of Dr Who Daleks and Cybermen</td>
+<td class="org-left">Modulation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-orgadcb648" class="outline-5">
+<h5 id="orgadcb648">Task 6: Add an effect</h5>
+<div class="outline-text-5" id="text-orgadcb648">
+<p>
+Add an effect from the list in Table <a href="#orgd8009e6">5</a> or one of your choosing from
+those available in GarageBand.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcfb2eae" class="outline-3">
+<h3 id="orgcfb2eae">Adding an effect</h3>
+<div class="outline-text-3" id="text-orgcfb2eae">
+<p>
+<a id="org611b81b"></a>
+</p>
+<ol class="org-ol">
+<li>Select the Smart Controls for the Crystal track &#x2013; they should look like this:
+<img src="./assets/gb-smart1.png" alt="gb-smart1.png" /></li>
+<li>In the plug-ins area (shown in Figure <a href="#org076811f">20</a>) move the mouse
+cursor over <span class="digred">&#x2460;</span> and click on the area next to the up/down
+arrow.</li>
+<li>Select an effect from the menu (shown in Figure <a href="#orgf70bce2">21</a>) and it
+will be applied to the track.</li>
+<li>Test the results by either playing a note on the M-Audio keyboard or by
+pressing play (►) to hear the previously recorded track.</li>
+</ol>
+
+<div id="org076811f" class="figure">
+<p><img src="./assets/gb-plugins-cry.png" alt="Plug-ins chain area image" height="120px" title="Plug-ins chains area" />
+</p>
+<p><span class="figure-number">Figure 20: </span>Plug-ins chain area</p>
+</div>
+
+<div id="orgf70bce2" class="figure">
+<p><img src="./assets/gb-plugins-list.png" alt="Plug-ins effects menu image" width="200px" title="Plug-ins effects menu" />
+</p>
+<p><span class="figure-number">Figure 21: </span>Plug-ins effects menu</p>
+</div>
+</div>
+<div id="outline-container-orga156da5" class="outline-5">
+<h5 id="orga156da5">Task 7: Change the effect's settings</h5>
+<div class="outline-text-5" id="text-orga156da5">
+<p>
+Fine tune the effect so that it has results closer to what your require.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdf4a93d" class="outline-3">
+<h3 id="orgdf4a93d">Changing an effect's settings</h3>
+<div class="outline-text-3" id="text-orgdf4a93d">
+<p>
+<a id="orge95f76a"></a>
+</p>
+<ol class="org-ol">
+<li>Click on the effect's name in the effect chain to bring it's dialogue box
+up. The example in Figure <a href="#org05bafe5">22</a> shows the box for the <i>echo</i>
+effect. Each effect will have its own particular dialogue box.</li>
+<li>Click on the setting pulldown (shown as <i>Factory Default</i> in Figure
+<a href="#org05bafe5">22</a>).</li>
+<li>Pick a setting from the list and listen to the result. Remember you will have
+to play a note on the M-Audio keyboard or press play (►) to hear what the
+effect does.</li>
+<li>Experiment with the sliders/other controls on the effect to see what different aspects of the sound can be omdified.</li>
+</ol>
+
+<div id="org05bafe5" class="figure">
+<p><img src="./assets/gb-echo.png" alt="Echo dialogue box image" height="200px" title="Echo dialogue box" />
+</p>
+<p><span class="figure-number">Figure 22: </span>GarageBand <b>echo</b> effect dialogue</p>
+</div>
+</div>
+<div id="outline-container-org5f2cde3" class="outline-5">
+<h5 id="org5f2cde3">Task 8: Create an effects chain</h5>
+<div class="outline-text-5" id="text-org5f2cde3">
+<p>
+Add an effects chain to your Crystal track and experiment with different effects
+in the chain. Some of the effects available in GarageBand are shown in Table
+<a href="#orgd8009e6">5</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7455ac3" class="outline-3">
+<h3 id="org7455ac3">Constructing the effects chain</h3>
+<div class="outline-text-3" id="text-org7455ac3">
+<ol class="org-ol">
+<li>Add another effect in the area where the first effect is but after it so that
+it forms a chain of two effects.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgdfc356a" class="outline-4">
+<h4 id="orgdfc356a">To think about</h4>
+<div class="outline-text-4" id="text-orgdfc356a">
+<ul class="org-ul">
+<li>Does the order of the effects in the chain affect the sound produced?</li>
+<li>How might an effects chain be saved for future use?</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaac4e8f" class="outline-3">
+<h3 id="orgaac4e8f">Getting the software</h3>
+<div class="outline-text-3" id="text-orgaac4e8f">
+<p>
+<a id="orgd47ca1f"></a>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Software</b></th>
+<th scope="col" class="org-left"><b>Availability</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Crystal</td>
+<td class="org-left">Free from <a href="http://greenoak.com/crystal/Crystal/Crystal.html">Green Oak</a> site</td>
+</tr>
+
+<tr>
+<td class="org-left">GarageBand</td>
+<td class="org-left">Comes free with MacOS on various Apple machines</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Also available free on iPad range of tablets</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org5fc2066" class="outline-3">
+<h3 id="org5fc2066">Some additional reading on effects</h3>
+<div class="outline-text-3" id="text-org5fc2066">
+<dl class="org-dl">
+<dt>Future Music 2012</dt><dd><a href="https://www.musicradar.com/tuition/tech/distortion-saturation-and-bitcrushing-explained-549516">Distortion, saturation and bitcrushing explained</a></dd>
+</dl>
+
+<div id="bibliography">
+<h2>References</h2>
+
+<table>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="noisesculpture:2009a">1</a>]
+</td>
+<td class="bibtexitem">
+n/d.
+ Synthesizer boot camp 1 -- Modulation: putting the pieces together.
+ <a href="https://youtu.be/MzN89Rc_06M">https://youtu.be/MzN89Rc_06M</a>, May 2009.
+ First in a series of videos on aspects of synthesizers.
+[&nbsp;<a href="refs_bib.html#noisesculpture:2009a">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="noisesculpture:2009b">2</a>]
+</td>
+<td class="bibtexitem">
+n/d.
+ Synthesizer boot camp 4 -- Low frequency oscillators.
+ <a href="https://youtu.be/CS_MFw2Y9kU">https://youtu.be/CS_MFw2Y9kU</a>, October 2009.
+ Fourth in a series of videos on aspects of synthesizers.
+[&nbsp;<a href="refs_bib.html#noisesculpture:2009b">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="future:2012">3</a>]
+</td>
+<td class="bibtexitem">
+n/d.
+ Distortion, saturation and bitcrushing explained.
+ 
+  <a href="https://www.musicradar.com/tuition/tech/distortion-saturation-and-bitcrushing-explained-549516">https://www.musicradar.com/tuition/tech/distortion-saturation-and-bitcrushing-explained-549516</a>,
+  June 2012.
+ Information on different types of distortion effects.
+[&nbsp;<a href="refs_bib.html#future:2012">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="richards:2012">4</a>]
+</td>
+<td class="bibtexitem">
+Mark Richards.
+ What is a leitmotif and how does it work in films.
+ 
+  <a href="https://www.filmmusicnotes.com/what-is-a-leitmotif-and-how-does-it-work-in-films/">https://www.filmmusicnotes.com/what-is-a-leitmotif-and-how-does-it-work-in-films/</a>,
+  December 2012.
+ Useful examples of leitmotif.
+[&nbsp;<a href="refs_bib.html#richards:2012">bib</a>&nbsp;]
+
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: The Music Tech team</p>
+<p class="date">Created: 2019-06-26 Wed 21:03</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
