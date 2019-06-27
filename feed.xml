@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://digmusic.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://digmusic.github.io/" />
-<updated>2019-06-27T21:47:58+01:00</updated>
+<updated>2019-06-27T21:54:20+01:00</updated>
 <id>http://digmusic.github.io/</id>
 <author>
   <name>Music Tech Team</name>
@@ -31,9 +31,8 @@
   <category scheme="http://digmusic.github.io/tags/#Recording" term="Recording" /><category scheme="http://digmusic.github.io/tags/#Leitmotif" term="Leitmotif" />
   <content type="html">
   
-    &lt;p&gt;The &lt;strong&gt;St Michael’s Workshop&lt;/strong&gt; covers recording and the use of leitmotif.&lt;/p&gt;
-
-&lt;p&gt;Start by following the instructions in this &lt;a href=&quot;http://digmusic.github.io/workshops/st-michaels/St_Michaels_mus_tech_June2019.pdf&quot; title=&quot;Link to St Michaels workshop PDF file&quot;&gt;PDF file&lt;/a&gt;.
+    &lt;p&gt;The &lt;strong&gt;St Michael’s Workshop&lt;/strong&gt; covers recording and the use of leitmotif.&lt;br /&gt;
+Start by following the instructions in this &lt;a href=&quot;http://digmusic.github.io/workshops/st-michaels/St_Michaels_mus_tech_June2019.pdf&quot; title=&quot;Link to St Michaels workshop PDF file&quot;&gt;PDF file&lt;/a&gt;.&lt;br /&gt;
 Instructions on working with leitmotif can be found in the Leitmotif Workshop
 blog entry elsewhere on this site.&lt;/p&gt;
 
