@@ -3,12 +3,12 @@ callback([
 
   {
     "text": "Composing Workshop",
-    "href": "http://localhost:4000/workshop/composing-workshop"
+    "href": "http://digmusic.github.io/workshop/composing-workshop"
   } ,
 
   {
     "text": "Leitmotif Workshop",
-    "href": "http://localhost:4000/workshop/leitmotif-workshop"
+    "href": "http://digmusic.github.io/workshop/leitmotif-workshop"
   } 
 
 ])
